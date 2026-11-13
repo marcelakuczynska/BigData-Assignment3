@@ -1,0 +1,6 @@
+Known 2x2, identity and zero matrices: 15/15 tests passed.
+n=128: all parallel results equal sequential (including every repetition).
+n=256: all parallel results equal sequential (including every repetition).
+n=512: all parallel results equal sequential (including every repetition).
+n=768: all parallel results equal sequential (including every repetition).
+n=1024: all parallel results equal sequential (including every repetition).

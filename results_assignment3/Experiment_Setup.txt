@@ -1,0 +1,26 @@
+COMPLETED
+Java version: 21
+OS: Windows 11
+Available logical processors in JVM: 8
+CPU: Intel Core i5-10210U (from Assignment 1 hardware record, same laptop)
+Physical cores: 4; logical processors on laptop: 8; RAM: 7.72 GiB (Assignment 1 record)
+JVM maximum heap MiB: 1978
+Matrix sizes: [128, 256, 512, 768, 1024]
+Threads for parallel method: [1, 2, 4, 8]
+Computational oversubscription: none planned (max 8 worker threads on 8 logical processors)
+Processor affinity: not set; Windows default scheduler
+Library worker threads: none (no BLAS or external matrix libraries)
+JVM GC/JIT may use its own threads, not included in matrix worker count
+Input generator: java.util.Random; seed=20261113+n; entries are integers 0..9; two matrices per n
+Data: signed 64-bit long[][] row arrays; all methods use the same input matrices
+Algorithm: i-k-j multiplication; same per-row computation in sequential and parallel versions
+Parallel split: disjoint output row ranges, no simultaneous writes to the same row
+Thread pools: created and prestarted before measurements; pool start-up excluded
+Timer: System.nanoTime; output allocation and job submission/wait included; inputs and pool creation excluded
+Warmups per configuration: 2; measured timing repetitions: 5
+Memory: separate repeated approximate retained Java heap delta after System.gc(), not process RSS
+Memory estimates: 3*n*n*8 bytes of primitive numeric array elements, excluding headers and thread stacks
+Maximum allowed single multiplication duration: 30 seconds; fail if exceeded
+Maximum budget for three numeric payload arrays: 256 MiB; fail if exceeded
+Summary: median and interpolated 25th/75th percentile IQR; speedup Tseq/Tpar, efficiency speedup/p
+The sequential kernel reuses the i-k-j loop-reordered implementation from Assignment 2
